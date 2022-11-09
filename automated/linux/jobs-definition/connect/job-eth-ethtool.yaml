@@ -1,4 +1,4 @@
-device_type:	RevPi_Connect
+device_type: RevPi_Connect
 job_name: Test eth-ethtool - Connect
 priority: medium
 visibility: public

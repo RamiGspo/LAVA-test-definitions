@@ -1,4 +1,4 @@
-device_type:	RevPi_Connect
+device_type: RevPi_Connect
 job_name: Test USB data transfer with USB flash disk - Connect
 priority: medium
 visibility: public

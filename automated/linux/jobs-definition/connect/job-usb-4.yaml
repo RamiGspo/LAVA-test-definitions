@@ -1,4 +1,4 @@
-device_type:	RevPi_Connect
+device_type: RevPi_Connect
 job_name: Test write speed from USB flash disk - Connect
 priority: medium
 visibility: public

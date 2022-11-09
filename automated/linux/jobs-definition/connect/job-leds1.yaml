@@ -1,4 +1,4 @@
-device_type:	RevPi_Connect
+device_type: RevPi_Connect
 job_name: Test LEDs 1 - Check LEDs with visual test - LEDs on/off - green/red."
 priority: medium
 visibility: public

@@ -1,4 +1,4 @@
-device_type:	RevPi_Core
+device_type: RevPi_Core
 job_name: Test eth-ethtool - Core
 priority: medium
 visibility: public

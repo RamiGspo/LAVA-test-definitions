@@ -1,4 +1,4 @@
-device_type:	RevPi_Core
+device_type: RevPi_Core
 job_name: Core3 - First job from GitHub Repository
 priority: medium
 visibility: public
