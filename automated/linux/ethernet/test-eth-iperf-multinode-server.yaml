@@ -1,0 +1,31 @@
+metadata:
+    name: iperf
+    format: "Lava-Test Test Definition 1.0"
+    description: "iperf is a tool for active measurements of the maximum
+                  achievable bandwidth on IP networks."
+    maintainer:
+        - r.gsponer@kunbus.com
+    os:
+        - debian
+    scope:
+        - performance
+    environment:
+        - lava-test-shell
+    devices:
+        - Core
+        - Core 3
+        - core 3+
+        - Core S
+        - Connect
+        - Connect+
+        - Connect S
+        - Connect SE
+
+params:
+    SKIP_INSTALL: "false"
+    SERVER_ETHERNET_DEVICE: "eth0"
+
+run:
+    steps:
+        - cd ./automated/linux/ethernet/
+        - bash ./iperf.sh -s "${SKIP_INSTALL}" -e "${SERVER_ETHERNET_DEVICE}"

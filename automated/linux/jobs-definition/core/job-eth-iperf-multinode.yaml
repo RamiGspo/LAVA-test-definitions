@@ -1,0 +1,91 @@
+job_name: lava-multinode-job-iperf
+priority: medium
+visibility: public
+
+timeouts:
+  job:
+    minutes: 15
+  action:
+    minutes: 3
+  connection:
+    minutes: 5
+
+metadata:
+  iperf-version: v3
+
+protocols:
+  lava-multinode:
+    roles:
+      server:
+        device_type: RevPi_Connect
+        count: 1
+        essential: True
+        timeout:
+          minutes: 10
+      client:
+        device_type: RevPi_Core
+        count: 1
+        timeout:
+          minutes: 10
+
+actions:
+- deploy:
+    role:
+      - server
+    timeout:
+      minutes: 4
+    to: ssh
+
+- deploy:
+    role:
+      - client
+    timeout:
+      minutes: 4
+    to: ssh
+
+- boot:
+    role:
+      - server
+    method: ssh
+    connection: ssh
+    prompts: ["root@RevPi"]
+    timeout:
+      minutes: 2
+
+- boot:
+    role:
+      - client
+    method: ssh
+    connection: ssh
+    prompts: ["root@RevPi"]
+    timeout:
+      minutes: 2
+
+- test:
+    role:
+    - server
+    timeout:
+      minutes: 15
+    definitions:
+    - repository: https://github.com/RamiGspo/LAVA-test-definitions.git
+      branch: devel/RamiGspo/iperf
+      from: git
+      path: automated/linux/ethernet/test-eth-iperf-server.yaml
+      name: iperf3-test
+      parameters:
+        SERVER_ETHERNET_DEVICE: eth0
+
+- test:
+    role:
+    - client
+    timeout:
+      minutes: 15
+    definitions:
+    - repository: https://github.com/RamiGspo/LAVA-test-definitions.git
+      branch: devel/RamiGspo/iperf
+      from: git
+      path: automated/linux/ethernet/test-eth-iperf-client.yaml
+      name: iperf3-test
+      parameters:
+        AFFINITY: ""
+        REVERSE: ""
