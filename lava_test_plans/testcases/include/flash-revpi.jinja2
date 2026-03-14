@@ -19,7 +19,7 @@
 {% set deploy_to = "recovery" %}
 {% set connection_namespace = "tlxc" %}
 {% set namespace = "recovery" %}
-{% set recovery_image_url = "https://artifactory.kunbus.com:443/artifactory/revpi-release-images/debos-build/bookworm/251126/arm64/lite/251126-revpi-bookworm-arm64-lite.img.zst" %}
+{% set recovery_image_url = REVPI_FLASH_IMAGE %}
 {% set os = "debian" %}
 {% set packages = "" %}
 {% set timeout_minutes = 10 %}
