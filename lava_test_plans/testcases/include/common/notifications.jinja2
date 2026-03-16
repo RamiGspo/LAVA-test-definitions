@@ -1,7 +1,9 @@
+{% set NOTIFY_ENABLED = (NOTIFY_ENABLED | string | lower) == "true" %}
 {% set NOTIFY_METHOD = NOTIFY_METHOD|default("email") %}
 {% set NOTIFY_USER = NOTIFY_USER|default("automator") %}
 {% set NOTIFY_STATUS = NOTIFY_STATUS|default("incomplete") %}
 
+{% if NOTIFY_ENABLED %}
 notify:
   recipients:
     - to:
@@ -10,3 +12,4 @@ notify:
   criteria:
     status: {{ NOTIFY_STATUS }}
   verbosity: verbose
+{% endif %}
