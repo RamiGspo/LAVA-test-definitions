@@ -28,6 +28,17 @@ while getopts "s:t:d:b:l:h" o; do
     esac
 done
 
+# on bullseye and older, a single RS485 device was named /dev/ttyRS485 instead
+# of /dev/ttyRS485-0. fall back to the legacy name if the specified device does
+# not exist.
+if [ ! -e "$RSDEV" ] && [ "$RSDEV" = "/dev/ttyRS485-0" ]; then
+    . /etc/os-release
+    if [ "${VERSION_ID:-0}" -lt 12 ]; then
+        RSDEV="/dev/ttyRS485"
+        info_msg "falling back to legacy RS485 device name: $RSDEV"
+    fi
+fi
+
 rs485_client() {
     local errors=0
 
