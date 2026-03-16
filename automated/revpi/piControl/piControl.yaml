@@ -27,7 +27,7 @@ metadata:
 params:
   SKIP_INSTALL: "False"
   TESTS: "pc-1 pc-2 pc-perms pc-cycle-time-sample pc-set-cycle-time"
-  EFFECTIVE_MIN_CYCLE_TIME: ""
+  EFFECTIVE_MIN_CYCLE_TIME: "15000"
 
 run:
   steps:
