@@ -3,7 +3,9 @@
 {% include "include/common/protocols.jinja2" %}
 {% include "include/common/notifications.jinja2" %}
 
+{% if TAGS %}
 tags: [{{ TAGS }}]
+{% endif %}
 
 actions:
 {% block actions %}
