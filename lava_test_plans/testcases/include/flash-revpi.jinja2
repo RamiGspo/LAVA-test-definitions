@@ -60,8 +60,8 @@
 {% set timeout_minutes = 5 %}
 {% include "include/actions/command.jinja2" %}
 
-{# Command: Timeout power off #}
-{% set command_name = "timeout_power_off" %}
+{# Command: Wait for SSH #}
+{% set command_name = "wait_for_ssh" %}
 {% set namespace = "recovery" %}
 {% set timeout_minutes = 5 %}
 {% include "include/actions/command.jinja2" %}
