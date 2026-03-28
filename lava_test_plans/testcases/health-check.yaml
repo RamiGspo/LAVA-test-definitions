@@ -1,7 +1,7 @@
 {% extends "testcases/templates/test.jinja2" %}
 
 {% set test_timeout = 1 %}
-{% set FLASH_REVPI = true %}
+{% set CAN_FLASH = true %}
 {% set TEST_NAMESPACE = "health-check" %}
 {% set TEST_NAME = TEST_NAME | default("health-check") %}
 {% set LAVA_JOB_NAME = "Job-health-check" %}
