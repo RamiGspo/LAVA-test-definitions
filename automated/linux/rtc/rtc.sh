@@ -20,7 +20,7 @@ usage() {
 while getopts "s:r:t:d:h" o; do
     case "$o" in
     s)
-        # nothing to install
+        install_deps util-linux-extra
         ;;
     r) SKIP_REBOOT="${OPTARG}" ;;
     t) TESTS="${OPTARG}" ;;
